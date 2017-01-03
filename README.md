@@ -76,28 +76,16 @@ mergedSet <- mergedSet[ grepl("std|mean", names(mergedSet), ignore.case = TRUE) 
 ```
 
 We merge the movement data with activities labels in order to have descriptive activity names to name the activities in the data set. We then add 2 new columns (PersonID and Activities) to the main dataset and give names to those new columns.
-
 ```R
    ## Descriptive activity names to name the activities in the data set
 mergedMoves <- merge(mergedMoves, activities, by.x = "V1", by.y = "V1")[2]
 mergedSet <- cbind(mergedPerson, mergedMoves, mergedSet)
-names(mergedSet)[1:2] <- c("PersonID", "Activities")```
-
-
-
+names(mergedSet)[1:2] <- c("PersonID", "Activities") 
+```
 Creating a new dataset with the average of each variable for each activity and each subject
-```R
-   ## Tidy data set with the average of each variable for each activity and each subject
-tidy_dataset <- group_by(mergedSet, PersonID, Activities) %>% summarise_each(funs(mean))```            
-
-
-
-
-
-
-
-
-
+```R ## Tidy data set with the average of each variable for each activity and each subject
+tidy_dataset <- group_by(mergedSet, PersonID, Activities) %>% summarise_each(funs(mean))
+```
 Write the tidy dataset to a csv file
 ```R
    ## Write tidy dataset
