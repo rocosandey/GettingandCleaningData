@@ -83,11 +83,12 @@ mergedSet <- cbind(mergedPerson, mergedMoves, mergedSet)
 names(mergedSet)[1:2] <- c("PersonID", "Activities") 
 ```
 Creating a new dataset with the average of each variable for each activity and each subject
-```R ## Tidy data set with the average of each variable for each activity and each subject
+```R 
+## Tidy data set with the average of each variable for each activity and each subject
 tidy_dataset <- group_by(mergedSet, PersonID, Activities) %>% summarise_each(funs(mean))
 ```
 Write the tidy dataset to a csv file
 ```R
-   ## Write tidy dataset
+## Write tidy dataset
 write.table(tidy_dataset, file = "tidyDataset.csv", row.names = FALSE)
 ```            
