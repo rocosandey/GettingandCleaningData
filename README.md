@@ -89,12 +89,5 @@ tidy_dataset <- group_by(mergedSet, PersonID, Activities) %>% summarise_each(fun
 Write the tidy dataset to a csv file
 ```R
    ## Write tidy dataset
-write.table(tidy_dataset, file = "tidyDataset.csv", row.names = FALSE)```            
-
-
-
-
-
-
-
-
+write.table(tidy_dataset, file = "tidyDataset.csv", row.names = FALSE)
+```            
